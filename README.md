@@ -10,5 +10,5 @@
 
 # Section #5 TDD & BDD
 
-[Section #6 Performance Testing]
+# Section #6 Performance Testing
 
