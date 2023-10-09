@@ -11,4 +11,3 @@
 
 [Section #6 Performance Testing](https://www.notion.so/Section-6-Performance-Testing-95bfdd79590a428d901faccecd9f4a2e?pvs=21)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5a4a80ee-bc86-47ce-9eaa-254d42d0d1ac/40156298-5914-413f-b4f3-6a9ce649e2da/Untitled.png)
