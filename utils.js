@@ -20,6 +20,9 @@ const isEven = (number) => {
 
 // Objects
 const getOrderById = (id) => {
+    if(!id) {
+        throw new Error('Id is required');
+    }
     return {
         id: id,
         price : 10

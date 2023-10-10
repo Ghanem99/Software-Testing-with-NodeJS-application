@@ -62,6 +62,10 @@ describe(getOrderById, () => {
         expect(res).toHaveProperty('id');
         expect(res).toHaveProperty('price');
     });
+
+    it('should throw an error if no id is passed', () => {
+        expect(() => getOrderById()).toThrow('Id is required');
+    });
 });
 
 
