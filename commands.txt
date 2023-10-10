@@ -2,3 +2,26 @@
 "scripts": {
     "test": "jest --watchAll"
   }
+// End add this flag
+
+
+// use describe to group related tests
+    // from this
+        test('sum - should add two numbers', () => {
+            const result = sum(3, 4);
+            expect(result).toBe(7);
+        });
+    // End from this
+    
+    // To this 
+        describe('sum', () => {
+            it('should add two numbers', () => {
+                const result = sum(3, 4);
+                expect(result).toBe(7);
+            });
+        })
+    // End To this
+// End use describe
+
+
+

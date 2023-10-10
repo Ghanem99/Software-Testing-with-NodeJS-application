@@ -14,9 +14,22 @@ const isEven = (number) => {
     }
  };
  
+// Arrays
+ const ANIMALS = ['cat', 'dog', 'monkey'];
+
+
+// Objects
+const getOrderById = (id) => {
+    return {
+        id: id,
+        price : 10
+    };
+};
 
  module.exports = {
     sum, 
     greeting, 
-    isEven
+    isEven, 
+    ANIMALS, 
+    getOrderById
 };

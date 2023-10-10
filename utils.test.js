@@ -1,37 +1,68 @@
-const {sum, greeting, isEven } = require('./utils');
+const {sum, greeting, isEven, ANIMALS, getOrderById } = require('./utils');
 
-test('should add two numbers', () => {
-    const result = sum(3, 4);
-    expect(result).toBe(7);
-});
+describe('sum', () => {
+    it('should add two numbers', () => {
+        const result = sum(3, 4);
+        expect(result).toBe(7);
+    });
+})
 
-test('should return a greeting', () => {
-    const result = greeting('John');
-    expect(result).toBe('Hello John');
+describe('greeting', () => {
+    it('should return a greeting', () => {
+        const result = greeting('John');
+        expect(result).toBe('Hello John');
+    });
 });
 
 // run the test with the following command:
 // $ npm run test   or   $ npm test
 
 
-test('should return true for even', () =>{
+it('isEven - should return true for even', () =>{
     expect(isEven(4)).toBeTruthy();
 });
 
-test('validation', () => {
-    let x; // Undefined
+describe('truthiness', () => {
+    it('should return true for Undefined values', () => {
+        let x; // Undefined
+    
+        expect(x).toBeUndefined();
+    });
+    
+    it('should return true for null values', () => {
+        let x = null;
+        expect(x).toBeNull();
+    });
+    
+    it('should return true for not Null values', () => {
+        let x = 10;
+        expect(x).not.toBeNull();
+    });
+}
+);
 
-    expect(x).toBeUndefined();
+
+// Arrays Matchers
+describe('Arrays', () => {
+    it('should return true for cat', () => {
+        expect(ANIMALS).toContain('cat');
+    });
 });
 
-test('validation, null', () => {
-    let x = null;
-    expect(x).toBeNull();
+// Objects Matchers
+describe(getOrderById, () => {
+    const res = getOrderById(1);
+    it('should return an object', () => {
+        expect(res).toBeInstanceOf(Object); // return true
+        // expect(res).toMatchObject( { id:1, price:10 } ); // return true
+        // expect(res).toBe({ id:1, price:10 });  // return false
+    });
+
+    it('should return an object with id and price', () => {
+        expect(res).toHaveProperty('id');
+        expect(res).toHaveProperty('price');
+    });
 });
 
-test('validation, notNull', () => {
-    let x = 10;
-    expect(x).not.toBeNull();
-});
 
 
