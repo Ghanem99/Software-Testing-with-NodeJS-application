@@ -1,0 +1,4 @@
+// add this flag to automatically rerun the test
+"scripts": {
+    "test": "jest --watchAll"
+  }
