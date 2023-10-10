@@ -1,4 +1,6 @@
-const {sum, greeting, isEven, ANIMALS, getOrderById } = require('./utils');
+const {sum, greeting, isEven, ANIMALS, getOrderById, getOrders, applyDiscount } = require('./utils');
+
+const db = require('./db');
 
 describe('sum', () => {
     it('should add two numbers', () => {
@@ -68,5 +70,26 @@ describe(getOrderById, () => {
     });
 });
 
+// Asynchronous Matchers
+describe('getOrders', () => {
+    it('should return an array of orders', async() => {
+        const res = await getOrders();
+        expect(res).toHaveLength(2);
+        expect(res).toContainEqual({ id: 1, price: 10 });
+        expect(res).toContainEqual({ id: 2, price: 20 });
+    });
+});
 
+// Mocking Matchers
+describe('applyDiscount', () => { 
+    it('should apply discount 10% for orders with price >= 10', () => { 
+        // Mocking
+        db.getOrderById = jest.fn().mockReturnValue({ id: 1, price: 10 });
 
+        const input = 1; 
+        const result = applyDiscount(input); 
+        // expect(result.price).toBe(9); 
+        // or
+        expect(result).toEqual({ id: 1, price: 9});
+    });
+});
